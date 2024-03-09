@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import AboutMe from './components/AboutMe';
+import Clients from './components/Clients';
+import Contact from './components/Contact';
+import Projects from './components/Resume';
+import Footer from './components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [activeSection, setActiveSection] = useState('home');
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+
+  const handleScroll = () => {
+    const sections = ['about', 'resume', 'portfolio'];
+    const scrollY = window.scrollY + window.innerHeight / 2;
+    const currentSection = sections.reverse().find(section => {
+      const element = document.getElementById(section);
+      return element.offsetTop <= scrollY;
+    });
+
+    setActiveSection(currentSection || 'about');
+  };
+
+  const scrollToElement = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> lol
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+      <nav>
+        <a onClick={toggleProfile} className="profile-symbol">
+        <FontAwesomeIcon icon={faBars}/>
         </a>
-      </header>
+        <a onClick={() => scrollToElement('about')} className={activeSection === 'about' ? 'active' : ''}>About Me</a>
+
+        <a onClick={() => scrollToElement('resume')} className={activeSection === 'resume' ? 'active' : ''}>Projects</a>
+        <a onClick={() => scrollToElement('portfolio')} className={activeSection === 'portfolio' ? 'active' : ''}>Clients</a>
+      </nav>
+
+      <div className="contact-card">
+        <div className={`profile-slide ${isProfileOpen ? 'open' : ''}`}>
+          <Contact />
+        </div>
+      </div>
+
+      <div id="about"><AboutMe /></div>
+      <div id="resume"><Projects /></div>
+      <div id="portfolio"><Clients /></div>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
