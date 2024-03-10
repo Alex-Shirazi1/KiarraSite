@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import AboutMe from './components/AboutMe';
-import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Projects from './components/Resume';
 import Footer from './components/Footer';
@@ -20,11 +19,12 @@ const App = () => {
     const scrollY = window.scrollY + window.innerHeight / 2;
     const currentSection = sections.reverse().find(section => {
       const element = document.getElementById(section);
-      return element.offsetTop <= scrollY;
+      return element && element.offsetTop <= scrollY; // Ensure element exists before checking offsetTop
     });
-
+  
     setActiveSection(currentSection || 'about');
   };
+  
 
   const scrollToElement = (id) => {
     const element = document.getElementById(id);
@@ -51,7 +51,6 @@ const App = () => {
         <a onClick={() => scrollToElement('about')} className={activeSection === 'about' ? 'active' : ''}>About Me</a>
 
         <a onClick={() => scrollToElement('resume')} className={activeSection === 'resume' ? 'active' : ''}>Projects</a>
-        <a onClick={() => scrollToElement('portfolio')} className={activeSection === 'portfolio' ? 'active' : ''}>Clients</a>
       </nav>
 
       <div className="contact-card">
@@ -62,7 +61,6 @@ const App = () => {
 
       <div id="about"><AboutMe /></div>
       <div id="resume"><Projects /></div>
-      <div id="portfolio"><Clients /></div>
       <Footer />
     </div>
   );

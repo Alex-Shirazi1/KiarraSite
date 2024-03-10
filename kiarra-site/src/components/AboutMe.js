@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Contact from './Contact';
+import Certifications from './Certifications';
 
 const AboutMe = () => {
     return (
@@ -25,6 +26,7 @@ const AboutMe = () => {
                     </p>
 
                 </div>
+                <Certifications />
             </div>
         </div>
     );
