@@ -300,7 +300,7 @@ h2 {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
 }
@@ -488,6 +488,16 @@ h2 {
 
 @media (max-width: 768px) {
 
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .certifications {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+
   .profile-symbol {
     display: block;
   }
@@ -565,6 +575,10 @@ h2 {
 
   .certifications {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .projects {
+    grid-template-columns: 2fr;
     gap: 10px;
   }
 

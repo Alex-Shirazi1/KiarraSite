@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Profiler, useEffect, useState } from 'react';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import Projects from './components/Resume';
@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-import Education from './components/Education';
+import Portfolio from './components/Portfolio';
 
 const App = () => {
 
@@ -60,7 +60,7 @@ const App = () => {
       </div>
 
       <div id="about"><AboutMe /></div>
-      <div id="resume"><Projects /></div>
+      <div id="resume"><Portfolio /></div>
       <Footer />
     </div>
   );
