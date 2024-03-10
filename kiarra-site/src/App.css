@@ -402,6 +402,38 @@ h2 {
   /* Spacing between grid items */
 }
 
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.section-title {
+  text-align: center;
+}
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skills-list li {
+  padding: 8px 16px; 
+  text-align: center; 
+  background-color: #e9ecef; 
+  border-radius: 20px;
+  white-space: nowrap; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+
+
 
 .page-title {
   font-size: 2rem;
@@ -490,6 +522,14 @@ h2 {
 
 
 @media (max-width: 768px) {
+
+  .project {
+    font-size: smaller; /* Reduce the font size on smaller screens */
+    line-height: 1.3; /* Adjust line height for better readability */
+    word-wrap: break-word; /* Ensures that long words will wrap and not overflow */
+    overflow-wrap: break-word; /* Same as above, it's a standard property for word-wrap */
+    padding: 10px; /* Add padding to prevent text from touching the edges */
+  }
 
   .projects {
     grid-template-columns: 1fr;

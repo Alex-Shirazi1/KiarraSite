@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Portfolio from './components/Portfolio';
+import SkillsSection from './components/SkillsSection';
 
 const App = () => {
 
@@ -60,7 +61,9 @@ const App = () => {
       </div>
 
       <div id="about"><AboutMe /></div>
+      <div id = "skills"><SkillsSection/></div>
       <div id="resume"><Portfolio /></div>
+
       <Footer />
     </div>
   );
