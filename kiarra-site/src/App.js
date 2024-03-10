@@ -50,7 +50,7 @@ const App = () => {
         <FontAwesomeIcon icon={faBars}/>
         </a>
         <a onClick={() => scrollToElement('about')} className={activeSection === 'about' ? 'active' : ''}>About Me</a>
-
+        <a onClick={() => scrollToElement('skills')} className={activeSection === 'skills' ? 'active' : ''}>Skills</a>
         <a onClick={() => scrollToElement('resume')} className={activeSection === 'resume' ? 'active' : ''}>Projects</a>
       </nav>
 
